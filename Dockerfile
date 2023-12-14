@@ -1,4 +1,4 @@
-FROM python:3.11.3-alpine3.17
+FROM python:3.12.1-alpine3.19
 
 RUN pip install wcs-python3-sdk chardet
 

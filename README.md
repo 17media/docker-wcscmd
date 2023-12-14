@@ -3,14 +3,14 @@
 - [Installation](#installation)
 - [Getting Started](#getting-started)
   - [Create config file](#create-config-file)
-  - [Setup Configuration](#setup-configuration)
   - [Alias Command](#alias-command)
+  - [Setup Configuration](#setup-configuration)
 - [Command list](#command-list)
 
 ## Installation
 
 ```shell
-docker pull ghcr.io/handsupshop/docker-wcscmd
+docker pull ghcr.io/17media/docker-wcscmd
 ```
 
 ## Getting Started
@@ -21,19 +21,16 @@ docker pull ghcr.io/handsupshop/docker-wcscmd
 touch "$HOME/.wcscfg"
 ```
 
-### Setup Configuration
-
-```shell
-HOST_CONFIG_FILE="$HOME/.wcscfg"
-docker run --rm -it \
-  -v "$HOST_CONFIG_FILE:/root/.wcscfg:rw" \
-  ghcr.io/handsupshop/docker-wcscmd wcscmd --configure
-```
-
 ### Alias Command
 
 ```shell
-alias wcscmd='docker run --rm -it -v "$HOME/.wcscfg:/root/.wcscfg:rw" ghcr.io/handsupshop/docker-wcscmd wcscmd'
+alias wcscmd='docker run --rm -it -v "$HOME/.wcscfg:/root/.wcscfg:rw" -v "$PWD:/root/app" -w "/root/app" ghcr.io/17media/docker-wcscmd wcscmd'
+```
+
+### Setup Configuration
+
+```shell
+wcscmd --configure
 ```
 
 ## Command list
